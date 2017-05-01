@@ -5,14 +5,14 @@ import java.io.File;
 
 public class OrtFileUtils {
 
-	public static String getFullFileName(String filename) throws IOException {
-		
-		return " ";
-	}
-
-	public static String getCanonicalPath() throws IOException {
-
-		return "";
+	public static String getFullFileName(File f) throws IOException {
+		String res;
+		if (f.exists()) {
+			res = f.getCanonicalPath();
+		}else{
+			throw new IOException();
+		}
+		return res;
 	}
 
 	public static String checkFolder(String pathname, boolean crear) throws RuntimeException, IOException {
